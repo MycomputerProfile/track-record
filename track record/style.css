@@ -1,0 +1,20 @@
+body{
+    background-color: darkgreen;
+    /* font-size: 4rem; */
+    font: 200px;
+    color: aliceblue;
+
+}
+.hour,.minute,.second{
+    height: 35px;
+    width: 30px;
+    margin: auto;
+    position: relative;
+    left: 100px;
+    background-color: deeppink;
+    border: 1px;
+    color: aliceblue;
+}
+.li_item:hover{
+    background-color: aqua;
+}

@@ -1,0 +1,738 @@
+3.https://react-rx5m.vercel.app/ (git repo - https://github.com/hackerbotsupreme/react-vite-ts_todoList_live )
+
+
+
+1. is react suggests to use next as its framework by himself ?is ts inbuilt in next 14 ? what problems/limits ts overcome  that were in js ?
+
+React itself does not specifically suggest using Next.js. However, Next.js is a popular framework in the React community that provides additional features not present in React itself1.
+
+Next.js is a backend framework based on React1. It includes additional features like routing, API calls, authentication, and more, which are not inherently available in React1. In React, you would need to install external libraries and dependencies for these features1.
+
+Next.js also uses server-side rendering, which is different from the client-side rendering used in React1. This means the user interface is generated on the server, not by the browser1.
+
+So, while React doesn’t explicitly suggest using Next.js, many developers choose to use Next.js for its additional features and streamlined development experience23. It’s important to note that there is a learning curve when transitioning from React to Next.js23.
+
+2. note , if we want to use react without next js then go with vite or parcel accorading to react.dev right ?
+
+3. we used react+tyoescript with vite to create this project ?
+yes . 
+then it will create a ready made twmplate after that we will run pnpm install to crete the starter setup for our project . 
+
+4. as HTMLElemnt ->what do we mean by this in main.tsx ? 
+(type casting , this is the typescript type assertion , we writes this to tell the typescript compiler that you are sure 
+that value is returned by document.grtElementbyId('root') is of type HTMLElemnt )
+5. 
+planning -> its made of total 3 elements hero section , navbar , addtodo(form) and the the addtodo list 
+so what we are going to do is first we are going to create the form when the user submit something we will store that 
+within an array and we will then map with loop that arraydata get displayed as a list . 
+
+5. as we were used .jsx for react components similarly we use .tsx for typescript .
+
+6. why do we need onchange+value both in the input ? 
+so that what is the user writing we will get that through value from one side and we are gonna add that to the onchange 
+to sorrespondingly through lonchange . 
+
+and then  we need to store that and update that data so we are gonna use the useState with the initial value of empty string .
+and yeah one more thing for single data at a time  we use useState and for many we use contextApi . 
+
+so lets proceed to the onChnge inside we will use a fatarrow with e as the argument and settodo(the updated state variable) like (e)=>setTodo(e.target.value)
+
+7. so now on button  wwe will add type="submit" 
+and in form we will add onSubmit .
+
+open the console and we can see that when we type one thing the another the state value just changing not storing . 
+
+8.now how to add the values on submit of the form .
+<form onSubmit={handleformSubmit}>
+and remember tht the form has a default behaviour of refeshing on submit , so we need 
+to add e.preventDefault in the handleformSubmit. 
+
+The default behavior of a form is to send a POST request to the server and then refresh the page. This is often not what you want when using JavaScript to handle form submission, as it prevents you from using the form data within your JavaScript code.
+
+To prevent this default behavior, you can use the event.preventDefault() method in your submit event handler. This method stops the form from submitting and the page from refreshing, allowing your JavaScript code to take over form submission.
+
+how input works is  when we hit sumbit it post the data on the backend then the backend logic does whatever we need right ?
+
+Yes, you’re correct. When a form is submitted, the data from the input fields is typically sent to a server-side script (backend) using a HTTP POST request. The server-side script can then process this data, which could involve a variety of operations such as storing the data in a database, sending an email, returning a response, etc.
+
+
+and lets define handleformSubmit , and yeah here it will be giving error as in typescript we have to 
+specify the types so inthat event argument we will add e:FormEvent<HTMLElemnt> as it is a FormEvent
+
+and if you dont know the type then hover over , and it will show yu , typescript tracks and suggests automaticlly the type of object . 
+its called type reference of typeScript/type inference in ts  .
+
+9. now we will add ,
+
+then in that handleformSubmit we will pass 
+handleAddTodo(todo)
+setTodo('')
+- we are passing this becaause at the end we want the updated state to be empty and data should be added using that handleAddtodo 
+
+handleAddTodo(todo): This function is used to update the state of the application to include the new todo item. The todo parameter is the new todo item that the user entered in the form.
+
+setTodo(''): This function is used to clear the input field after the form is submitted. It sets the state of the todo variable back to an empty string, which in turn clears the input field in the UI.
+
+So, yes, you’re using these functions to add the new todo item to your list (with handleAddTodo) and then clear the input field (with setTodo('')) after the form is submitted. This is a common pattern in React for handling form submissions.
+
+//////////////////////////////////////////////////
+
+what is contextApi ? 
+
+The React Context API is a feature in React that allows you to essentially create global variables that can be passed around in a React app³⁴⁵. This is an alternative to "prop drilling", which is the process of passing props from a grandparent to a parent to a child, and so on³⁴⁵.
+
+The Context API allows data to be passed through a component tree without having to pass props manually at every level². This makes it easier to share data between components². For example, if you have a shopping app with a component that shows a user’s shopping cart, and another component that shows the user’s order history, you can create a “context” that holds the user’s shopping information, like their cart and order history². Then, you can use that context in both the shopping cart and the order history component, without having to pass the information down through props².
+
+The Context API consists of two main components: the context provider and the context consumer². The provider is responsible for creating and managing the context, which holds the data to be shared between components². The consumer, on the other hand, is used in components that need to access the data from the context².
+
+Here's an example of how you might use the Context API in a React application:
+
+```javascript
+import React, { createContext, useContext } from 'react';
+
+// Create a Context
+const MyContext = createContext();
+
+// Create a Provider Component
+function MyProvider({ children }) {
+    const value = 'Hello, World!';
+    return <MyContext.Provider value={value}>{children}</MyContext.Provider>;
+}
+
+// Create a Consumer Component
+function MyComponent() {
+    const value = useContext(MyContext);
+    return <div>{value}</div>;
+}
+
+// Use the Provider and Consumer in the App
+function App() {
+    return (
+        <MyProvider>
+            <MyComponent />
+        </MyProvider>
+    );
+}
+```
+
+In this example, `MyProvider` provides a value to all of its children. `MyComponent` consumes this value using the `useContext` hook¹. When `App` is rendered, it displays "Hello, World!"..
+
+what is prop drilling ? how context api provies the alternative to it ?
+
+Prop drilling is a technique used in React where data is passed from a parent component down to its child components via props³¹. This can become a problem when the component hierarchy becomes too deep or complex¹. Prop drilling occurs when a parent component passes data down to its children and then those children pass the same data down to their own children⁷. This process can continue indefinitely, creating a long chain of component dependencies that can be difficult to manage and maintain⁷.
+
+The React Context API provides an alternative to prop drilling²⁴. The Context API allows you to create a centralized data store, making it accessible to all components within a specific context⁴. This way, you can avoid prop drilling by providing and consuming data through context, eliminating the need to pass props down the tree manually⁴.
+
+Here's how it works:
+
+1. **Create a Context**: First, you create a Context using `React.createContext()`.
+2. **Provide the Context**: Then, you use a Provider component to wrap the part of your component tree that needs access to the context. The Provider component has a `value` prop which is used to set the value of the context.
+3. **Consume the Context**: Finally, in any component that needs to access the context, you can use the `useContext` hook with the Context you created. This allows you to access the context value directly, without having to receive it as a prop.
+
+Here's a simple example:
+
+```javascript
+import React, { createContext, useContext } from 'react';
+
+// Create a Context
+const MyContext = createContext();
+
+// Create a Provider Component
+function MyProvider({ children }) {
+    const value = 'Hello, World!';
+    return <MyContext.Provider value={value}>{children}</MyContext.Provider>;
+}
+
+// Create a Consumer Component
+function MyComponent() {
+    const value = useContext(MyContext);
+    return <div>{value}</div>;
+}
+
+// Use the Provider and Consumer in the App
+function App() {
+    return (
+        <MyProvider>
+            <MyComponent />
+        </MyProvider>
+    );
+}
+```
+
+In this example, `MyProvider` provides a value to all of its children. `MyComponent` consumes this value using the `useContext` hook². When `App` is rendered, it displays "Hello, World!"². This way, you can share data across multiple components without having to pass it down through props at every level²⁴.
+
+The React Context API is a feature in React that allows you to essentially create global variables  - do yu mean global state ?
+
+Yes, you're correct. When I mentioned "global variables", I was referring to a global state that can be accessed and manipulated from anywhere in the component tree. The Context API allows you to share values like these across all levels of your application, making it easy to store and share user data, theme information, locale data, and more. It's like having a global object that's accessible to all components without having to pass the props down manually at every level. So, yes, the Context API is often used to create a global state in your React applications.
+
+
+import React, { createContext, useContext } from 'react';
+
+// Create a Context
+const MyContext = createContext();
+
+// Create a Provider Component
+function MyProvider({ children }) {
+    const value = 'Hello, World!';
+    return <MyContext.Provider value={value}>{children}</MyContext.Provider>;
+}
+
+// Create a Consumer Component
+function MyComponent() {
+    const value = useContext(MyContext);
+    return <div>{value}</div>;
+}
+
+// Use the Provider and Consumer in the App
+function App() {
+    return (
+        <MyProvider>
+            <MyComponent />
+        </MyProvider>
+    );
+}
+- can yu explain it ?
+
+Sure, I'd be happy to explain this code. It's a simple example of how to use the Context API in React:
+
+1. **Import React, createContext, and useContext**: The `createContext` and `useContext` functions are imported from the 'react' library along with the 'React' object.
+
+2. **Create a Context**: `createContext` is called to create a new Context object. This object will be used to provide and consume context.
+
+3. **Create a Provider Component**: A functional component named `MyProvider` is created. This component receives `children` as a prop and returns a `MyContext.Provider` component. The `value` prop of the `MyContext.Provider` component is set to 'Hello, World!', and its children are set to the `children` prop of `MyProvider`. This means that 'Hello, World!' will be provided as context to all children of `MyProvider`.
+
+4. **Create a Consumer Component**: A functional component named `MyComponent` is created. This component uses the `useContext` hook with `MyContext` to consume the context value provided by `MyProvider`. It then returns a `div` that displays this value.
+
+5. **Use the Provider and Consumer in the App**: Finally, an `App` component is created that uses `MyProvider` to wrap `MyComponent`. This means that 'Hello, World!' will be provided as context to `MyComponent`, and `MyComponent` will display this value.
+
+When this `App` component is rendered, it will display a `div` with the text 'Hello, World!'. This is because 'Hello, World!' is the value provided by `MyProvider` and consumed by `MyComponent`.
+
+
+is contextApi made of consumer and provider where provider wraps the consumer ?
+
+Yes, you're correct. The Context API in React is essentially made up of two main parts: the Provider and the Consumer.
+
+- **Provider**: The Provider component is used to "provide" or make available data to all components within its scope. You can think of it as a container that holds data and allows access to that data to all components that are descendants of it.
+
+- **Consumer**: The Consumer component, on the other hand, is used to "consume" or access the data that the Provider makes available. Any component that needs to access the data provided by the Provider can do so using the Consumer component.
+
+So, in a typical setup, the Provider component wraps around the part of the component tree that needs access to the data, and the Consumer components are used within this tree wherever the data is needed.
+
+However, with the introduction of the `useContext` hook in React, you can consume context in a more straightforward way without the need for a Consumer component. The `useContext` hook allows you to directly access the context value in any functional component.
+
+
+a typical setup, the Provider component wraps around the part of the component tree that needs access to the data, and the Consumer components are used within this tree wherever the data is needed. - highlight the provider wrapping component part in - import React, { createContext, useContext } from 'react';
+
+// Create a Context
+const MyContext = createContext();
+
+// Create a Provider Component
+function MyProvider({ children }) {
+    const value = 'Hello, World!';
+    return <MyContext.Provider value={value}>{children}</MyContext.Provider>;
+}
+
+// Create a Consumer Component
+function MyComponent() {
+    const value = useContext(MyContext);
+    return <div>{value}</div>;
+}
+
+// Use the Provider and Consumer in the App
+function App() {
+    return (
+        <MyProvider>
+            <MyComponent />
+        </MyProvider>
+    );
+}
+- this code
+
+In the provided code, the `MyProvider` component is the Provider for the `MyContext` context. It's defined as follows:
+
+```javascript
+function MyProvider({ children }) {
+    const value = 'Hello, World!';
+    return <MyContext.Provider value={value}>{children}</MyContext.Provider>;
+}
+```
+
+In this function, `children` is a prop that represents the child components of `MyProvider`. The `value` constant is set to 'Hello, World!', and this value is provided to all child components of `MyProvider` through the `MyContext.Provider` component.
+
+Then, in the `App` component, `MyProvider` wraps around `MyComponent`, like so:
+
+```javascript
+function App() {
+    return (
+        <MyProvider>
+            <MyComponent />
+        </MyProvider>
+    );
+}
+```
+
+In this setup, `MyComponent` is a child of `MyProvider`, so it has access to the value provided by `MyProvider` through the context. This is how the Provider component wraps around the part of the component tree (in this case, `MyComponent`) that needs access to the data.
+
+a typical setup, the Provider component wraps around the part of the component tree that needs access to the data, and the Consumer components are used within this tree wherever the data is needed. - highlight the provider wrapping component part in - import React, { createContext, useContext } from 'react';
+
+// Create a Context
+const MyContext = createContext();
+
+// Create a Provider Component
+function MyProvider({ children }) {
+    const value = 'Hello, World!';
+    return <MyContext.Provider value={value}>{children}</MyContext.Provider>;
+}
+
+// Create a Consumer Component
+function MyComponent() {
+    const value = useContext(MyContext);
+    return <div>{value}</div>;
+}
+
+// Use the Provider and Consumer in the App
+function App() {
+    return (
+        <MyProvider>
+            <MyComponent />
+        </MyProvider>
+    );
+}
+- this code
+
+
+In the provided code, the `MyProvider` component is the Provider for the `MyContext` context. It's defined as follows:
+
+```javascript
+function MyProvider({ children }) {
+    const value = 'Hello, World!';
+    return <MyContext.Provider value={value}>{children}</MyContext.Provider>;
+}
+```
+
+In this function, `children` is a prop that represents the child components of `MyProvider`. The `value` constant is set to 'Hello, World!', and this value is provided to all child components of `MyProvider` through the `MyContext.Provider` component.
+
+Then, in the `App` component, `MyProvider` wraps around `MyComponent`, like so:
+
+```javascript
+function App() {
+    return (
+        <MyProvider>
+            <MyComponent />
+        </MyProvider>
+    );
+}
+```
+
+In this setup, `MyComponent` is a child of `MyProvider`, so it has access to the value provided by `MyProvider` through the context. This is how the Provider component wraps around the part of the component tree (in this case, `MyComponent`) that needs access to the data.
+
+
+so in sort context api is made up of three things , usecontext - which stores the data , provder - which provides the data and ,consumer - passit as a argument and wrap it in provider / wrap any child element that to pass the data to right ?
+
+
+Yes, you're mostly correct, but let me clarify a bit:
+
+1. **Context**: Created using `React.createContext()`, this is not exactly where the data is stored, but it creates an object which will be used to share data across components.
+
+2. **Provider**: This is a component that "provides" or makes available the data (which you pass to it via the `value` prop) to all components within its scope. It doesn't necessarily store the data, but it does distribute it.
+
+3. **Consumer**: This is a component that "consumes" or accesses the data that the Provider makes available. You use it in any component that needs to access the data provided by the Provider.
+
+4. **useContext Hook**: This is a hook that lets you consume the context value directly inside a functional component. It's an easier way to access context without having to use the Consumer component.
+
+So, in short, you create a context, provide it with a value using the Provider component, and then consume that value in any child component using either the Consumer component or the `useContext` hook. Here's a simplified example:
+
+```javascript
+import React, { createContext, useContext } from 'react';
+
+// Create a Context
+const MyContext = createContext();
+
+// Create a Provider Component
+function MyProvider({ children }) {
+    const value = 'Hello, World!';
+    return <MyContext.Provider value={value}>{children}</MyContext.Provider>;
+}
+
+// Create a Component that Consumes the Context
+function MyComponent() {
+    const value = useContext(MyContext);
+    return <div>{value}</div>;
+}
+
+// Use the Provider and Consumer in the App
+function App() {
+    return (
+        <MyProvider>
+            <MyComponent />
+        </MyProvider>
+    );
+}
+```
+
+In this example, `MyProvider` provides a value to all of its children. `MyComponent` consumes this value using the `useContext` hook. When `App` is rendered, it displays "Hello, World!".
+
+
+
+so its 4 things right /
+
+Yes, you're correct. When using the Context API in React, there are four main parts:
+
+1. **React.createContext()**: This is used to create a new Context object.
+2. **Context.Provider**: This is a React component that allows consuming components to subscribe to context changes. The Provider component accepts a `value` prop to be passed to consuming components that are descendants of this Provider.
+3. **Context.Consumer**: This is a React component that subscribes to context changes. It lets you subscribe to a context within a function component.
+4. **useContext() Hook**: This is a hook that accepts a context object (the value returned from React.createContext) and returns the current context value, as given by the nearest context provider for the given context.
+and there is the value props 
+
+So, yes, there are four main things to consider when working with the Context API in React. However, it's important to note that the useContext Hook and the Consumer component serve the same purpose of allowing you to consume context, but useContext provides a simpler syntax when working with functional components. So, in most cases, you'll be primarily working with createContext, Provider, and useContext.
+
+and we use useContexthooks to create context right ?
+
+
+No, the `useContext` hook is not used to create context. The `React.createContext` function is used to create a new context. Here's how it works:
+
+1. **Create a Context**: You call `React.createContext()` to create a new Context object. This is where you can provide a default value for the context.
+
+    ```javascript
+    const MyContext = React.createContext(defaultValue);
+    ```
+
+2. **Provide the Context**: You use the Provider component (which is part of the Context object you created) to provide the context value to a tree of components. Any component under the Provider will have access to the context value.
+
+    ```javascript
+    <MyContext.Provider value={/* some value */}>
+        {/* Your components go here */}
+    </MyContext.Provider>
+    ```
+
+3. **Consume the Context**: Finally, in any component that needs to access the context value, you can use the `useContext` hook. This hook takes the Context object you created as an argument and returns the current value of the context.
+
+    ```javascript
+    const value = useContext(MyContext);
+    ```
+
+So, to summarize, `React.createContext` is used to create the context, the Provider component is used to provide the context value, and `useContext` is used to consume the context value.
+
+
+React.createContext is used to create the context, the Provider component is used to provide the context value, and useContext is used to consume the context value. - tell me more
+
+create the context,  provide the context value ,consume the context value - tell me more
+
+Sure, I'd be happy to explain more about creating, providing, and consuming context in React:
+
+1. **Creating Context**: The first step in using the Context API is to create a context. This is done using the `React.createContext()` function. This function accepts a single argument, which is the default value for the context. This default value is used if a component consumes the context but is not a descendant of a Provider for that context. Here's an example:
+
+    ```javascript
+    const MyContext = React.createContext('default value');
+    ```
+
+    In this example, a new context is created with a default value of 'default value'.
+
+2. **Providing Context**: Once you've created a context, you can use the Provider component to provide a context value to a tree of components. The Provider component is part of the Context object you created, and it accepts a `value` prop. This `value` prop is the value that will be provided to consuming components. Here's an example:
+
+    ```javascript
+    <MyContext.Provider value="Hello, World!">
+        {/* Any components inside here will have access to the context value */}
+    </MyContext.Provider>
+    ```
+
+    In this example, the Provider provides a value of 'Hello, World!' to all of its child components.
+
+3. **Consuming Context**: Finally, in any component that needs to access the context value, you can use the `useContext` hook. This hook accepts the Context object you created as an argument and returns the current value of the context. Here's an example:
+
+    ```javascript
+    function MyComponent() {
+        const value = useContext(MyContext);
+        return <div>{value}</div>;  // This will render 'Hello, World!'
+    }
+    ```
+
+    In this example, `MyComponent` consumes the value from `MyContext` using the `useContext` hook. It then renders this value inside a `div`.
+
+So, to summarize, you create a context with `React.createContext()`, provide a value to the context using the Provider component, and consume the value using the `useContext` hook. This allows you to share values across your component tree without having to pass props down manually at every level.
+
+
+//////////////////////////////////////////////////////
+
+
+9. now we will make ue of contextApi  , create store(global state ) which will contain todos and addTodos 
+
+inside the todos , we will use contextApi 
+
+note in the contextApi we have createContext(which holds the context) used to store data of your project ,
+provider used to  provide thaat stored data to where its asked .
+and consumer(useContext) is that customer whoassked for the stored data .  
+createContext , Provider and Consumer(useContext) , components can easily communicate and shre important data without passing 
+it through all the components in between . 
+
+now , 
+export const todosConext = createContext(null)// here createContext stores data of our project and now  todosConext = createContext ,
+// the new name of createContext is todosContext 
+
+
+//todosProvider/data provider  provides the stored data to the chilren to do that  we need to pass that as an argumet 
+export const todosProvider = ({childern}) =>{
+    return 
+    <todosContext.Provider>
+    {childern}
+    </todosContext.Provider>
+}
+//the childern is wrapped inside the provider , mena s the dataprovider of stored data / todosConext gives full access to the assigned  childern 
+//and who exactly is the childern to define that we will wrap the app into it 
+//or in other words , app and evry elements of app component will have the access to the stored data 
+// now to assign the app as the childern  we will wwrap the app into <todosProvider></todosProvider>
+like 
+    <React.StrictMode>
+    <todosContext.Provider>    like 
+    {childern}
+    </todosContext.Provider>
+    </React.StrictMode>
+in main.tsx 
+
+// note that syntax is matching .
+
+
+next they will say that the childern type is any as the App component is a whole app  which is an error in ts . 
+
+now we will define the type of todosProvider,
+export const todosProviderProps = {
+    childern : ReactNode //so tell me which data do we want to store string or number  , i will type string sting in the input 
+    // and thats why we will use react node , which is a generic type which menas it will support if its any kind of childern type  a wide range of posssible childern types , including jsx elements , strings and other react components 
+} 
+    // also remember that what we are gonna pass to the createContext/ what is going to store inside the createContext and so we have to define their type also 
+so in the todos where we created the createContext  , write 
+//remember here we are defining the types the data we are passing to createContext to store / we are telling the format it should store the data 
+// this is the part where we defines the type for object that is created useContext hook 
+export type TodosContext = {
+    todos : Todo[] // []-> this means the type is array 
+    handleAddTodo:(task:string)=>void; (as we dont need to return any thing )
+    // and when we define a type of the function its called call signature 
+    toggleTodoAsCompleted:(id:string)=>void //call signature 
+}
+
+
+export type Todo = {
+    id : string ;
+    task : string ;
+    completed : boolean ;
+    createAt :Date ;
+        // to check which one we are we tickiing and which one we are choosing and deleting 
+        // and to idenltify the state 
+        // completed , yes or no 
+}
+//remember when you over any element what is displaayed is the generics of that component in typescript 
+// now after all this said we can add todo ,handleAddTodo in the value props 
+export const todosConext = createContext<TodosContext>(null)// we are saying that the data type of the createContext is the TodosContext and in any case if we have not got any data then we added union operator bar  |  null(means  nothing is stored )
+//and (null) menas at start it will have nothing in store 
+export const todosProvider = ({childern}:todosProviderProps) =>{
+    return 
+    <todosContext.Provider value={todo ,handleAddTodo}>
+    {childern}
+    </todosContext.Provider>
+}
+and also whenever we use povider component we have to use value props 
+ok , so remember after we submit the form the handleformSubmit will have the data which we want to store in the contextApi and then state should be updated 
+
+and now , we need to update whensever anyone clicks on the seetTodos so 
+export const todosProvider = ({childern}:todosProviderProps) =>{
+    const [todos,setTodos] = useState<Todo[]>([])
+    const handleAddTodo = (task:string) => {// task:string ,  whatever we are gonna write in the input type 
+        setTodos((prev)=>{
+            const newTodos: Todo[]= [  // Todo[] this says that the type of newTodos is an array of the Todo object 
+                {
+                    id:Math.random().toString(),
+                    task : task , // what ever the user typed that will be assigned to the task 
+                    completed: false,
+                    createAt : new Date() ,
+                },// note that we only defined the type previously , now its the real data connections that we are defineing 
+                ..prev // this is saying spread or add the rest of prev array next to it / at the end 
+            ] 
+            return newTodos
+        })
+    } // void vs null 
+    return <todosContext.Provider value={todo ,handleAddTodo}>
+    {childern}
+    </todosContext.Provider>
+}
+
+now finally  for consumer , 
+export const useTodos = ()=>{ // useTodos bcz when we use custom hooks we need to use use before it .  
+    const todosConsumer = useContext(todosContext);
+    if (!todosConsumer ){   // is there any consumer or if the todosProvider is wrapped 
+        throw new Error('useTodos used outside of Provider')
+    } 
+    return todosConsumer;
+} 
+and also add it to the addTodos.txt so 
+
+const {handleAddTodo} = useTodos();
+
+handleAddTodo(todo)
+
+
+so go to the browser console and test it out . 
+
+so we added data and now we need to get and display htat  data 
+so lets create a file named todos.txt 
+do next has typescript by default?
+does {} - curly braces means object ? 
+// ty[pe inference ]
+const todos = () =>{
+    const {todos} = useTodos();//from useTodos we are getting the data / todos 
+
+    let filterData = todos; // now we need to filter that data bcz we will need active , completed , deleted tasks seperately 
+    return (
+        <ul>
+        filterData.map((todo:Todo)=>{    // when we are running loop , three things will be needed tickn=box , text , delete 
+        // but there is a cache the dlete button only appears when we tick hte tick box , which means when the value of tick box is truw we gets the dlete box 
+        //and whenever we are using map we need to use keys 
+            return <li key={todo.id} >
+                <input type="checkbox" id={`todo-${todo.id}`}  checked={todo.completed} onchange ={()=>toggleTodoAsCompleted(todo.id)} >//when we need label we also need an id for it , checked attribute is used to check 
+                // and onchange we are calling a function 
+                <label htmlfor={`todo-${todo.id}`} >{todo.task}</label>
+
+                //if todo.completed is true then only show the button 
+                {
+                    todo.completed && (
+                        <button type="button" onClick = {()=>handleDeleteTodo(todo.id)}>delete</button>
+                    )
+                }
+            </li>
+        })
+        </ul>
+    )
+}
+
+export default Todos 
+
+and now lets define handleDeleteTodo in store  , 
+//as we have passed from there so we catched in here 
+const handleDeleteTodo = (id:string) => {
+    //make that id element delete in settodos 
+    setTodos((prev)=>{
+        let newTodos = prev.map(()=>{
+            if (todo.id === id){ // others will stay as they are only the id will be changed which ever id is matched , with not operator if true then false and if false then true 
+                return {...todo,completed:!todo.completed}
+            }return todo  ;// and if id does not matches 
+        })
+        return newTodos
+    })
+}
+now we also have to add this in the types of todoContext 
+// note handleAddTodo : (id:string) => void -> this => means return , the function which has a argument id of string which is returning void 
+after this , onclick the delete button will be visible 
+
+
+and the one last thing we need to delete the individual data , 
+
+so lets define , 
+const handleDeleteTodo = (id:string) => (
+    //updating setTodos - saying return only those whose id have not matched means tose that have not been checked like a chain reaction
+    // note that evry thing here is happening based on the change of state which means , when returned its filtering those who havenot been cliked to delete 
+    setTodos((prev)=>{
+        let newTodos = prev.filter((filterTodo)=>filterTodo.id!==id)
+        return newTodos ;
+    })
+)
+
+also add it to the value of provider then at the useTodos , 
+like 
+return <todosContext.Provider value={{todos,handleAddTodo,toggleTodoAsCompleted,handleDeleteTodo}}>
+    {chikdren}
+    </todoContext.provider>
+
+const {todos , toggleTodoAsCompleted , handleDeleteTodo } = useTodos();
+
+
+now as the base is set so we can make our navbar now , 
+// one more thing after all this when we will click on the completed , the url on the top should be like 
+?todos = active or when we clicked on completed its ?todos = completed  -> this is also because of filter method 
+// now how will we create that nav bar , currently we are using vite + ts  and also this is not next 
+so we would need a third party router 
+which menas we need to install react router dom using terminal then package.json , lets go , and remember we have already 
+installed react and react dom as the dependencies 
+
+make the navbar file then 
+// first rafce -> react arrow function component with export 
+const Navbar = () =>{
+    return (
+        <nav>
+        // now we can use Link tag for navigation 
+        <Link to="/" className ={todosData === null ? "active": "" }>All</Link> // to contains the query parameter which adds to the url and we sees the ?todos = active  on click 
+        <Link to="/?todo=active"  className ={todosData === null ? "active": ""} >active</Link>
+        <Link to="/?todos=completed"  className ={todosData === null ? "active": ""}>completed</Link>
+        // className ={todosData === null ? "active": ""} here we are using ternary operator in className saying if todosData is null then add active else add empty string or add nothing 
+        </nav>
+    )
+}
+export default Navbar 
+
+and then go to the App and add <Navbar/> to the <main> also dont forget to wraap using browser router as we are using react-router-dom 
+and remember this all is the background process when succeded we can connect and build ui 
+
+and for that we have to modify  filterdata 
+
+so first in order to get the values , we have useSearchParam which we gets from the react-router-dom 
+
+import {useSearchParams} from 'react-router-dom'
+
+inside Todos 
+const {searchParams}= useSearchParams();
+and , it returns error then just hover over then it will show the format mistake 
+
+const [searchParams] = useSearchParams();
+let todosData = searchParams.get("todos");
+console.log (todosData)whihc is returning data in the console 
+if(todosData===active){
+    //finally if its active the filterdaat equals return me those tasks which are not completed
+    filterdata = filterData.filter((task)=>!task.completed)
+}
+// and 
+if(todosData===completed){
+    //finally if its completed the filterdaat equals return me those tasks which are  completed
+    filterdata = filterData.filter((task)=>task.completed)
+}
+and if noting is clicked then 
+
+filterData = todos 
+
+and lastly we will need localstorage as the page refreshes all data is gone , 
+in localstorage we will set then  get  
+
+inside the handleAddTodo and 
+before newTodos  
+// name and then value , 
+localstorage.setItem('todos',newTodos)
+// but   there is one problem that localstorage only stores string , but we have array of object 
+localstorage.setItem('todos',JSON.stringify(newTodos))
+
+also add it to toggleTodoAsCompleted and handleDeleteTodo
+
+now to check go to localstorage of console , which is on the application tab , as we are using localStorage 
+now if you refreh you will see that data of the app is sgone but the data in the localStorage is still there 
+which means we have to get that 
+
+to do that we need to think that where the first time time data goes to , 
+its goes to todos state of the useState 
+ const [todos,setTodos] = useState<Todo[]>([])
+and that is why we will modify this to , 
+ const [todos,setTodos] = useState<Todo[]>(()=>{
+    try{
+        const newTodos = localStorage.getItem("todos") || "[]"; -> || this tells if not happens then , or operator 
+        // in order to parse the data we need string data , so string 
+        return JSON.parse(newTodos) as Todo[] // first hover to see if it can sucessfully infer the type if not we tells that by explicitely using as(using type casting in ts )
+    }catch(error){// if fails to getItem from localStorage 
+        return []
+    }
+ })
+
+
+
+react vs next to make the same project  , 
+no difference but the react-router-dom 
+
+next is future ,
+
+note this project uses react , react-dom , react-router-dom , vite and ts 
+
+

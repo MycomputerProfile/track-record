@@ -1,0 +1,105 @@
+TARGETS
+CSS SELECTOR
+DOM NODE / NODELIST
+JAVASCRIPT OBJECT
+ARRAY
+PROPERTIES
+CSS PROPERTIES
+CSS TRANSFORMS
+OBJECT PROPERTIES
+DOM ATTRIBUTES
+SVG ATTRIBUTES
+PROPERTY PARAMETERS
+DURATION
+DELAY
+END DELAY
+EASING
+ROUND
+SPECIFIC PROPERTY PARAMETERS
+FUNCTION BASED PARAMETERS
+ANIMATION PARAMETERS
+DIRECTION
+LOOP
+AUTOPLAY
+VALUES
+UNITLESS
+SPECIFIC UNIT
+RELATIVE
+COLORS
+FROM TO
+FUNCTION BASED VALUES
+KEYFRAMES
+ANIMATION KEYFRAMES
+PROPERTY KEYFRAMES
+STAGGERING
+STAGGERING BASICS
+START VALUE
+RANGE VALUE
+FROM VALUE
+DIRECTION
+EASING
+GRID
+AXIS
+TIMELINE
+TIMELINE BASICS
+TIME OFFSETS
+PARAMETERS INHERITANCE
+CONTROLS
+PLAY / PAUSE
+RESTART
+REVERSE
+SEEK
+TIMELINE CONTROLS
+CALLBACKS & PROMISES
+UPDATE
+BEGIN & COMPLETE
+LOOPBEGIN & LOOPCOMPLETE
+CHANGE
+CHANGEBEGIN & CHANGECOMPLETE
+FINISHED PROMISE
+SVG
+MOTION PATH
+MORPHING
+LINE DRAWING
+EASINGS
+LINEAR
+PENNER'S FUNCTIONS
+CUBIC BÉZIER CURVE
+SPRING
+ELASTIC
+STEPS
+CUSTOM EASING FUNCTION
+HELPERS
+////////////////////////////////////////////////////////////////////////////
+
+
+
+
+Sure, here are some beginner to intermediate topics in Anime.js that you can start with:
+
+1. **Targets**: Understanding what can be animated is the first step. Start with simple targets like CSS selectors, DOM nodes, JavaScript objects, and arrays.
+
+2. **Properties**: Learn how to animate different properties like CSS properties, CSS transforms, object properties, DOM attributes, and SVG attributes.
+
+3. **Property Parameters**: Understand the parameters that you can use to control your animations, such as duration, delay, end delay, easing, and round.
+
+4. **Animation Parameters**: Learn about the parameters that control the animation itself, such as direction, loop, and autoplay.
+
+5. **Values**: Understand how to specify the values for the properties you're animating. This includes unitless values, specific units, relative values, colors, and function-based values.
+
+6. **Keyframes**: Learn how to use keyframes to create more complex animations.
+
+7. **Staggering**: Staggering can be used to create a delay between the animations of individual elements. Learn about the basics of staggering and how to use it.
+
+8. **Timeline**: The timeline is a powerful tool that allows you to sequence animations. Learn about the basics of the timeline and how to use it.
+
+9. **Controls**: Understand how to control your animations using play, pause, restart, reverse, and seek.
+
+10. **Callbacks & Promises**: Learn how to use callbacks and promises to execute code at specific points in your animation.
+
+Remember, the best way to learn is by doing. Try to create simple projects as you learn these topics. This will give you a better understanding of how different parts of Anime.js work together. Good luck with your learning journey!
+
+
+
+
+

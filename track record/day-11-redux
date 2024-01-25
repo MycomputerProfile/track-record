@@ -1,0 +1,727 @@
+three fundamentals of redux , store reducersand ?
+
+The three fundamental concepts of Redux are **Actions**, **Reducers**, and the **Store**.
+
+- **Actions**: Actions are payloads of information that send data from your application to your Redux store. They are the only source of information for the store. Actions are plain JavaScript objects and must have a `type` property to indicate the type of action being performed.
+
+- **Reducers**: Reducers specify how the application's state changes in response to actions sent to the store. They are pure functions that take the previous state and an action, and return the next state.
+
+- **Store**: The Store is the object that brings actions and reducers together. It holds the application state; allows access to state via `getState()`, allows state to be updated via `dispatch(action)`, and registers listeners via `subscribe(listener)`.
+
+
+Introduction
+        Getting Started with Redux
+                    on this page 
+                                                                                                Installation
+                                                                                                Redux Toolkit
+                                                                                                Create a React Redux App
+                                                                                                Redux Core
+                                                                                                Basic Example
+                                                                                                Redux Toolkit Example
+                                                                                                Learn Redux
+                                                                                                Redux Essentials Tutorial
+                                                                                                Redux Fundamentals Tutorial
+                                                                                                Learn Modern Redux Livestream
+                                                                                                Additional Tutorials
+                                                                                                Other Resources
+                                                                                                Help and Discussion
+                                                                                                Should You Use Redux?
+        Installation
+                                                                                                     Redux Toolkit
+                                                                                                    Complementary Packages
+                                                                                                    React-Redux
+                                                                                                    Redux DevTools Extension
+                                                                                                    Create a React Redux App
+                                                                                                    Redux Core
+        Why Redux Toolkit is How To Use Redux Today
+                                                                                                What is Redux Toolkit?
+                                                                                                    How Redux Toolkit Is Different Than the Redux Core
+                                                                                                    What Is "Redux"?
+                                                                                                    What Does the Redux Core Do?
+                                                                                                    What Does Redux Toolkit Do?
+                                                                                                    Why We Want You To Use Redux Toolkit
+                                                                                                    Further Information
+        Core Concepts
+        Learning Resources
+                                                                                                            Basic Introductions
+                                                                                                    Using Redux With React
+                                                                                                    Project-Based Tutorials
+                                                                                                    Redux Implementation
+                                                                                                    Reducers
+                                                                                                    Selectors
+                                                                                                    Normalization
+                                                                                                    Middleware
+                                                                                                    Side Effects - Basics
+                                                                                                    Side Effects - Advanced
+                                                                                                    Thinking in Redux
+                                                                                                    Redux Architecture
+                                                                                                    Apps and Examples
+                                                                                                    Redux Docs Translations
+                                                                                                    Books
+                                                                                                    Courses
+                                                                                                    More Resources
+
+        Ecosystem
+                                                                                                            Table of Contents
+                                                                                                    Library Integration and Bindings
+                                                                                                    Reducers
+                                                                                                    Utilities
+                                                                                                    Store
+                                                                                                    Immutable Data
+                                                                                                    Side Effects
+                                                                                                    Middleware
+                                                                                                    Entities and Collections
+                                                                                                    Component State and Encapsulation
+                                                                                                    Dev Tools
+                                                                                                    Testing
+                                                                                                    Routing
+                                                                                                    Forms
+                                                                                                    Higher-Level Abstractions
+                                                                                                    Community Conventions
+        Examples
+                                                                                                            Counter Vanilla
+                                                                                                    Counter
+                                                                                                    Todos
+                                                                                                    Todos with Undo
+                                                                                                    TodoMVC
+                                                                                                    Shopping Cart
+                                                                                                    Tree View
+                                                                                                    Async
+                                                                                                    Universal
+                                                                                                    Real World
+                                                                                                    More Examples
+Tutorials
+            Tutorials Index
+                                                                                                            Redux Official Tutorials
+                                                                                                Additional Resources
+                                                                                                Learn Modern Redux Livestream
+            Quick Start
+                                                                                                                    Introduction
+                                                                                                        How to Read This Tutorial
+                                                                                                        Usage Summary
+                                                                                                        Install Redux Toolkit and React-Redux
+                                                                                                        Create a Redux Store
+                                                                                                        Provide the Redux Store to React
+                                                                                                        Create a Redux State Slice
+                                                                                                        Add Slice Reducers to the Store
+                                                                                                        Use Redux State and Actions in React Components
+                                                                                                        What You've Learned
+                                                                                                        Full Counter App Example
+                                                                                                        What's Next?
+            TypeScript Quick Start
+                                                                                                                    Introduction
+                                                                                                        Project Setup
+                                                                                                        Define Root State and Dispatch Types
+                                                                                                        Define Typed Hooks
+                                                                                                        Application Usage
+                                                                                                        Define Slice State and Action Types
+                                                                                                        Use Typed Hooks in Components
+                                                                                                        Full Counter App Example
+                                                                                                        What's Next?
+Redux Essentials
+
+                Redux Overview and Concepts
+                                                                                                                                    Introduction
+                                                                                                                    How to Read This Tutorial
+                                                                                                                    What is Redux?
+                                                                                                                    Why Should I Use Redux?
+                                                                                                                    When Should I Use Redux?
+                                                                                                                    Redux Libraries and Tools
+                                                                                                                    Redux Terms and Concepts
+                                                                                                                    State Management
+                                                                                                                    Immutability
+                                                                                                                    Terminology
+                                                                                                                    Redux Application Data Flow
+                                                                                                                    What You've Learned
+                                                                                                                    What's Next?
+                Redux Toolkit App Structure
+                                                                                                                                Introduction
+                                                                                                                The Counter Example App
+                                                                                                                Using the Counter App
+                                                                                                                Application Contents
+                                                                                                                Creating the Redux Store
+                                                                                                                Creating Slice Reducers and Actions
+                                                                                                                Rules of Reducers
+                                                                                                                Reducers and Immutable Updates
+                                                                                                                Writing Async Logic with Thunks
+                                                                                                                The React Counter Component
+                                                                                                                Component State and Forms
+                                                                                                                Providing the Store
+                                                                                                                What You've Learned
+                                                                                                                What's Next?
+                Basic Redux Data Flow
+                                                                                                                            Introduction
+                                                                                                            Project Setup
+                                                                                                            Main Posts Feed
+                                                                                                            Creating the Posts Slice
+                                                                                                            Showing the Posts List
+                                                                                                            Adding New Posts
+                                                                                                            What You've Learned
+                                                                                                            What's Next?
+                Using Redux Data
+                                                                                                                        Introduction
+                                                                                                        Showing Single Posts
+                                                                                                        Creating a Single Post Page
+                                                                                                        Adding the Single Post Route
+                                                                                                        Editing Posts
+                                                                                                        Updating Post Entries
+                                                                                                        Creating an Edit Post Form
+                                                                                                        Preparing Action Payloads
+                                                                                                        Users and Posts
+                                                                                                        Adding a Users Slice
+                                                                                                        Adding Authors for Posts
+                                                                                                        More Post Features
+                                                                                                        Storing Dates for Posts
+                                                                                                        Sorting the Posts List
+                                                                                                        Post Reaction Buttons
+                                                                                                        What You've Learned
+                                                                                                        What's Next?
+                Async Logic and Data Fetching
+                                                                                                                            Introduction
+                                                                                                            Example REST API and Client
+                                                                                                            Thunks and Async Logic
+                                                                                                            Using Middleware to Enable Async Logic
+                                                                                                            Thunk Functions
+                                                                                                            Writing Async Thunks
+                                                                                                            Loading Posts
+                                                                                                            Extracting Posts Selectors
+                                                                                                            Loading State for Requests
+                                                                                                            Fetching Data with createAsyncThunk
+                                                                                                            Reducers and Loading Actions
+                                                                                                            Displaying Loading State
+                                                                                                            Loading Users
+                                                                                                            Adding New Posts
+                                                                                                            Sending Data with Thunks
+                                                                                                            Checking Thunk Results in Components
+                                                                                                            What You've Learned
+                                                                                                            What's Next?
+                Performance and Normalizing Data
+                                                                                                                        Introduction
+                                                                                                        Adding User Pages
+                                                                                                        Adding Notifications
+                                                                                                        Notifications Slice
+                                                                                                        Thunk Arguments
+                                                                                                        Adding the Notifications List
+                                                                                                        Showing New Notifications
+                                                                                                        Improving Render Performance
+                                                                                                        Investigating Render Behavior
+                                                                                                        Memoizing Selector Functions
+                                                                                                        Investigating the Posts List
+                                                                                                        Normalizing Data
+                                                                                                        Normalized State Structure
+                                                                                                        Managing Normalized State with createEntityAdapter
+                                                                                                        Updating the Posts Slice
+                                                                                                        Optimizing the Posts List
+                                                                                                        Converting Other Slices
+                                                                                                        Converting the Users Slice
+                                                                                                        Converting the Notifications Slice
+                                                                                                        What You've Learned
+                                                                                                        What's Next?
+                RTK Query Basics
+                                                                                                                Introduction
+                                                                                                RTK Query Overview
+                                                                                                Motivation
+                                                                                                What's included
+                                                                                                Thinking in RTK Query Caching
+                                                                                                Setting Up RTK Query
+                                                                                                Defining an API Slice
+                                                                                                Configuring the Store
+                                                                                                Displaying Posts with Queries
+                                                                                                Using Query Hooks in Components
+                                                                                                Sorting Posts
+                                                                                                Displaying Individual Posts
+                                                                                                Adding the Single Post Query Endpoint
+                                                                                                Query Arguments and Cache Keys
+                                                                                                Creating Posts with Mutations
+                                                                                                Adding the New Post Mutation Endpoint
+                                                                                                Using Mutation Hooks in Components
+                                                                                                Refreshing Cached Data
+                                                                                                Refetching Posts Manually
+                                                                                                Automatic Refreshing with Cache Invalidation
+                                                                                                What You've Learned
+                                                                                                What's Next?
+                RTK Query Advanced Patterns
+                                                                                                                Introduction
+                                                                                                Editing Posts
+                                                                                                Updating the Edit Post Form
+                                                                                                Cache Data Subscription Lifetimes
+                                                                                                Invalidating Specific Items
+                                                                                                Managing Users Data
+                                                                                                Fetching Users Manually
+                                                                                                Selecting Users Data
+                                                                                                Injecting Endpoints
+                                                                                                Manipulating Response Data
+                                                                                                Transforming Responses
+                                                                                                Normalized vs Document Caches
+                                                                                                Selecting Values from Results
+                                                                                                Comparing Transformation Approaches
+                                                                                                Advanced Cache Updates
+                                                                                                Persisting Reactions
+                                                                                                Implementing Optimistic Updates
+                                                                                                Streaming Cache Updates
+                                                                                                Tracking Client-Side State
+                                                                                                What You've Learned
+                                                                                                What's Next?
+Redux Fundamentals
+            Redux Overview
+                                                                                                        Introduction
+                                                                                            How to Read This Tutorial
+                                                                                            What is Redux?
+                                                                                            Why Should I Use Redux?
+                                                                                            When Should I Use Redux?
+                                                                                            Redux Libraries and Tools
+                                                                                            Redux Basics
+                                                                                            The Redux Store
+                                                                                            Redux Core Example App
+                                                                                            Data Flow
+                                                                                            What You've Learned
+                                                                                            What's Next?
+            Redux Concepts and Data Flow
+                                                                                                    Introduction
+                                                                                        Background Concepts
+                                                                                        State Management
+                                                                                        Immutability
+                                                                                        Redux Terminology
+                                                                                        Actions
+                                                                                        Reducers
+                                                                                        Store
+                                                                                        Dispatch
+                                                                                        Selectors
+                                                                                        Core Concepts and Principles
+                                                                                        Single Source of Truth
+                                                                                        State is Read-Only
+                                                                                        Changes are Made with Pure Reducer Functions
+                                                                                        Redux Application Data Flow
+                                                                                        What You've Learned
+                                                                                        What's Next?
+            State, Actions, and Reducers
+                                                                                                Introduction
+                                                                                    Project Setup
+                                                                                    Starting the Todo Example App
+                                                                                    Defining Requirements
+                                                                                    Designing the State Values
+                                                                                    Designing the State Structure
+                                                                                    Designing Actions
+                                                                                    Writing Reducers
+                                                                                    Creating the Root Reducer
+                                                                                    Rules of Reducers
+                                                                                    Reducers and Immutable Updates
+                                                                                    Handling Additional Actions
+                                                                                    Splitting Reducers
+                                                                                    Combining Reducers
+                                                                                    combineReducers
+                                                                                    What You've Learned
+                                                                                    What's Next?
+            Store
+                                                                                        ntroduction
+                                                                            Redux Store
+                                                                            Creating a Store
+                                                                            Loading Initial State
+                                                                            Dispatching Actions
+                                                                            Inside a Redux Store
+                                                                            Configuring the Store
+                                                                            Creating a Store with Enhancers
+                                                                            Middleware
+                                                                            Using Middleware
+                                                                            Writing Custom Middleware
+                                                                            Your First Custom Middleware
+                                                                            Middleware Use Cases
+                                                                            Redux DevTools
+                                                                            Adding the DevTools to the Store
+                                                                            What You've Learned
+                                                                            What's Next?
+            UI and React
+                                                                                        Introduction
+                                                                            Integrating Redux with a UI
+                                                                            Basic Redux and UI Integration
+                                                                            Using Redux with React
+                                                                            Designing the Component Tree
+                                                                            Reading State from the Store with useSelector
+                                                                            Dispatching Actions with useDispatch
+                                                                            Passing the Store with Provider
+                                                                            React-Redux Patterns
+                                                                            Global State, Component State, and Forms
+                                                                            Using Multiple Selectors in a Component
+                                                                            Selecting Data in List Items by ID
+                                                                            What You've Learned
+                                                                            What's Next?
+            Async Logic and Data Fetching
+                                                                                        Introduction
+                                                                            Example REST API and Client
+                                                                            Redux Middleware and Side Effects
+                                                                            Using Middleware to Enable Async Logic
+                                                                            Writing an Async Function Middleware
+                                                                            Redux Async Data Flow
+                                                                            Using the Redux Thunk Middleware
+                                                                            Configuring the Store
+                                                                            Fetching Todos from a Server
+                                                                            Saving Todo Items
+                                                                            What You've Learned
+                                                                            What's Next?
+            Standard Redux Patterns
+                                                                            Action Creators
+                                                                Using Action Creators
+                                                                Memoized Selectors
+                                                                Memoizing Selectors with createSelector
+                                                                Selectors with Multiple Arguments
+                                                                Async Request Status
+                                                                Loading State Enum Values
+                                                                Flux Standard Actions
+                                                                Normalized State
+                                                                Thunks and Promises
+                                                                What You've Learned
+                                                                What's Next?
+            Modern Redux with Redux Toolkit
+                                                                    Store Setup
+                                                        Using configureStore
+                                                        Package Cleanup
+                                                        Writing Slices
+                                                        Using createSlice
+                                                        Immutable Updates with Immer
+                                                        Converting the Todos Reducer
+                                                        Writing Thunks
+                                                        Using createAsyncThunk
+                                                        Normalizing State
+                                                        Using createEntityAdapter
+                                                        What You've Learned
+                                                        Next Steps for Learning and Using Redux
+            Videos
+                                                            Learn Modern Redux Livestream
+                                                RTK Query Basics: Query Endpoints, Data Flow and TypeScript
+                                                Redux Toolkit Complete Tutorial with Dave Gray
+                                                Egghead Courses with Jamund Ferguson
+                                                Modern Redux with Redux Toolkit (RTK) and TypeScript
+                                                Modernizing a Legacy Redux Application with React Hooks
+                                                Confidently Testing Redux Applications with Jest & TypeScript
+Using Redux
+            Usage Guides Index
+                                                            Setup and Organization
+                                                Code Quality
+                                                Redux Logic and Patterns
+Setup and Organization
+                Configuring Your Store
+                                                                        Creating the store
+                                                        Extending Redux functionality
+                                                        Problems with this approach
+                                                        The solution: configureStore
+                                                        Integrating the devtools extension
+                                                        Hot reloading
+                                                        Simplifying Setup with Redux Toolkit
+                                                        Next Steps
+                Migrating to Modern Redux
+                                                                        Overview
+                                                        Modernizing Redux Logic with Redux Toolkit
+                                                        Store Setup with configureStore
+                                                        Reducers and Actions with createSlice
+                                                        Data Fetching with RTK Query
+                                                        Data Fetching with createAsyncThunk
+                                                        Reactive Logic with createListenerMiddleware
+                                                        Migrating TypeScript for Redux Logic
+                                                        Modernizing React Components with React-Redux
+                                                        Migrating connect to Hooks
+                                                        Migrating TypeScript for Components
+                                                        Further Information
+                Code Splitting
+                                                                        Basic Principle
+                                                        Using replaceReducer
+                                                        Reducer Injection Approaches
+                                                        Defining an injectReducer function
+                                                        Using a 'Reducer Manager'
+                                                        Libraries and Frameworks
+                Server Rendering
+                                                                            Redux on the Server
+                                                            Setting Up
+                                                            Install Packages
+                                                            The Server Side
+                                                            Handling the Request
+                                                            Inject Initial Component HTML and State
+                                                            The Client Side
+                                                            Preparing the Initial State
+                                                            Processing Request Parameters
+                                                            Async State Fetching
+                                                            Security Considerations
+                                                            Next Steps
+                Isolating Redux Sub-Apps
+
+Code Quality
+                Usage With TypeScript
+                                                            Overview
+                                            Standard Redux Toolkit Project Setup with TypeScript
+                                            Define Root State and Dispatch Types
+                                            Define Typed Hooks
+                                            Application Usage
+                                            Define Slice State and Action Types
+                                            Use Typed Hooks in Components
+                                            Typing Additional Redux Logic
+                                            Type Checking Reducers
+                                            Type Checking Middleware
+                                            Type Checking Redux Thunks
+                                            Usage with React Redux
+                                            Typing the useSelector hook
+                                            Typing the useDispatch hook
+                                            Typing the connect higher order component
+                                            Usage with Redux Toolkit
+                                            Typing configureStore
+                                            Matching Actions
+                                            Typing createSlice
+                                            Typing createAsyncThunk
+                                            Typing createEntityAdapter
+                                            Additional Recommendations
+                                            Use the React Redux Hooks API
+                                            Avoid Action Type Unions
+                                            Resources
+                Writing Tests
+                                                                    Guiding Principles
+                                                    Setting Up a Test Environment
+                                                    Test Runners
+                                                    UI and Network Testing Tools
+                                                    Integration Testing Connected Components and Redux Logic
+                                                    Example App Code
+                                                    Setting Up a Reusable Test Render Function
+                                                    Writing Integration Tests With Components
+                                                    Preparing Initial Test State
+                                                    Unit Testing Individual Functions
+                                                    Reducers
+                                                    Selectors
+                                                    Action Creators & Thunks
+                                                    Middleware
+                                                    Further Information
+                Troubleshooting
+                                                            Nothing happens when I dispatch an action
+                                            Something else doesn't work
+Redux Logic and Patterns
+
+        Structuring Reducers
+                Structuring Reducers
+                Prerequisite Concepts
+                Basic Reducer Structure
+                Splitting Reducer Logic
+                Refactoring Reducers Example
+                Using combineReducers
+                Beyond combineReducers
+                Normalizing State Shape
+                Designing a Normalized State
+                            Organizing Normalized Data in State
+                            Relationships and Tables
+                            Normalizing Nested Data
+                Updating Normalized Data
+                                                        Standard Approaches
+                                        Simple Merging
+                                        Slice Reducer Composition
+                                        Other Approaches
+                                        Task-Based Updates
+                                        Redux-ORM
+                Reusing Reducer Logic
+                                            Customizing Behavior with Higher-Order Reducers
+                            Collection / Item Reducer Pattern
+                Immutable Update Patterns
+                                                Updating Nested Objects
+                                Inserting and Removing Items in Arrays
+                                Updating an Item in an Array
+                                Immutable Update Utility Libraries
+                                Simplifying Immutable Updates with Redux Toolkit
+                                Further Information
+                Initializing State
+                                                    Summary
+                                    In Depth
+                                    Single Simple Reducer
+                                    Combined Reducers
+                                    Recap
+        Reducing Boilerplate
+                                            Actions
+                                    Action Creators
+                                    Generating Action Creators
+                                    Async Action Creators
+                                    Reducers
+                                    Generating Reducers
+        Deriving Data with Selectors
+                                                Deriving Data
+                                        Calculating Derived Data with Selectors
+                                        Basic Selector Concepts
+                                        Encapsulating State Shape with Selectors
+                                        Optimizing Selectors with Memoization
+                                        Writing Memoized Selectors with Reselect
+                                        createSelector Overview
+                                        createSelector Behavior
+                                        Reselect Usage Patterns and Limitations
+                                        Alternative Selector Libraries
+                                        proxy-memoize
+                                        re-reselect
+                                        reselect-tools
+                                        redux-views
+                                        Reselect v5 Proposal
+                                        Using Selectors with React-Redux
+                                        Calling Selectors with Parameters
+                                        Creating Unique Selector Instances
+                                        Using Selectors Effectively
+                                        Define Selectors Alongside Reducers
+                                        Balance Selector Usage
+                                        Reshape State as Needed for Components
+                                        Globalize Selectors if Needed
+                                        Further Information
+        Writing Logic with Thunks
+                                                Thunk Overview
+                                        What is a "thunk"?
+                                        Writing Thunks
+                                        Why Use Thunks?
+                                        Thunk Use Cases
+                                        Redux Thunk Middleware
+                                        Adding the Middleware
+                                        How Does the Middleware Work?
+                                        Injecting Config Values Into Thunks
+                                        Thunk Usage Patterns
+                                        Dispatching Actions
+                                        Accessing State
+                                        Async Logic and Side Effects
+                                        Returning Values from Thunks
+                                        Using createAsyncThunk
+                                        Fetching Data with RTK Query
+                                        Further Information
+        Side Effects Approaches
+                                            Redux and Side Effects
+                                    Side Effects Overview
+                                    Middleware and Side Effects
+                                    Side Effects Use Cases
+                                    Recommendations
+                                    Why RTK Query for Data Fetching
+                                    Why Listeners for Reactive Logic
+                                    Common Side Effects Approaches
+                                    Thunks
+                                    Sagas
+                                    Observables
+                                    Listeners
+                                    RTK Query
+                                    Other Approaches
+                                    Custom Middleware
+                                    Websockets
+                                    XState
+                                    Further Information
+        Writing Custom Middleware
+                                            When to use custom middleware
+                                    Standard patterns for middleware
+                                    Create side effects for actions
+                                    Modify or cancel actions, or modify the input accepted by dispatch
+                                    Rules to make compatible middleware
+                                    Calling the next middleware
+                                    Returning the dispatch return value
+                                    Next Steps
+        Implementing Undo History
+                                                Understanding Undo History
+                                        Designing the State Shape
+                                        Designing the Algorithm
+                                        First Attempt: Writing a Reducer
+                                        Meet Reducer Enhancers
+                                        Second Attempt: Writing a Reducer Enhancer
+                                        Using Redux Undo
+                                        Installation
+                                        Wrapping the Reducer
+                                        Updating the Selectors
+                                        Adding the Buttons
+Understanding Redux
+            Thinking in Redux
+                    Motivation
+                    Three Principles
+                                                    Single source of truth
+                                State is read-only
+                                Changes are made with pure functions
+                    Glossary
+                                                        State
+                                                        Action
+                                                        Reducer
+                                                        Dispatching Function
+                                                        Action Creator
+                                                        Async Action
+                                                        Middleware
+                                                        Store
+                                                        Store creator
+                                                        Store enhancer
+                    History and Design
+                            Prior Art
+                                                Flux
+                                                Elm
+                                                Immutable
+                                                Baobab
+                                                RxJS
+                            Middleware
+                                                Understanding Middleware
+                                                Problem: Logging
+                                                Attempt #1: Logging Manually
+                                                Attempt #2: Wrapping Dispatch
+                                                Attempt #3: Monkeypatching Dispatch
+                                                Problem: Crash Reporting
+                                                Attempt #4: Hiding Monkeypatching
+                                                Attempt #5: Removing Monkeypatching
+                                                Attempt #6: Naïvely Applying the Middleware
+                                                The Final Approach
+                                                Seven Examples
+FAQ
+        Style Guide
+                    Style Guide: Best Practices
+                                    Introduction
+                                    Rule Categories
+                                    Priority A: Essential
+                                    Priority B: Strongly Recommended
+                                    Priority C: Recommended
+                                    Priority A Rules: Essential
+                                    Do Not Mutate State
+                                    Reducers Must Not Have Side Effects
+                                    Do Not Put Non-Serializable Values in State or Actions
+                                    Only One Redux Store Per App
+                                    Priority B Rules: Strongly Recommended
+                                    Use Redux Toolkit for Writing Redux Logic
+                                    Use Immer for Writing Immutable Updates
+                                    Structure Files as Feature Folders with Single-File Logic
+                                    Put as Much Logic as Possible in Reducers
+                                    Reducers Should Own the State Shape
+                                    Name State Slices Based On the Stored Data
+                                    Organize State Structure Based on Data Types, Not Components
+                                    Treat Reducers as State Machines
+                                    Normalize Complex Nested/Relational State
+                                    Keep State Minimal and Derive Additional Values
+                                    Model Actions as Events, Not Setters
+                                    Write Meaningful Action Names
+                                    Allow Many Reducers to Respond to the Same Action
+                                    Avoid Dispatching Many Actions Sequentially
+                                    Evaluate Where Each Piece of State Should Live
+                                    Use the React-Redux Hooks API
+                                    Connect More Components to Read Data from the Store
+                                    Use the Object Shorthand Form of mapDispatch with connect
+                                    Call useSelector Multiple Times in Function Components
+                                    Use Static Typing
+                                    Use the Redux DevTools Extension for Debugging
+                                    Use Plain JavaScript Objects for State
+                                    Priority C Rules: Recommended
+                                    Write Action Types as domain/eventName
+                                    Write Actions Using the Flux Standard Action Convention
+                                    Use Action Creators
+                                    Use RTK Query for Data Fetching
+                                    Use Thunks and Listeners for Other Async Logic
+                                    Move Complex Logic Outside Components
+                                    Use Selector Functions to Read from Store State
+                                    Name Selector Functions as selectThing
+                                    Avoid Putting Form State In Redux
+API Reference
+                API Reference
+                            Top-Level Exports
+                            Store API
+                            Importing
+                createStore
+                Store
+                            Store Methods
+                            Store Methods
+                            getState()
+                            dispatch(action)
+                            subscribe(listener)
+                            replaceReducer(nextReducer)
+                combineReducers
+                applyMiddleware
+                bindActionCreators
+                compose
+Redux Toolkit
+                Redux Toolkit: Overview
+                            What is Redux Toolkit?
+                                    Installation
+                            Purpose
+                            Why You Should Use Redux Toolkit
+                            What's Included
+                            Documentation

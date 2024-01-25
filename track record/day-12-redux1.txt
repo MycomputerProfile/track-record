@@ -1,0 +1,254 @@
+ai-github-repo - https://github.com/hackerbotsupreme/project_ai_summarizer
+used technologies  - tailind + vite + postcss + redux + react + react-dom + autoprefixer 
+
+in the project , 
+three fundamentals of redux , store reducersand ?
+
+
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+what is createApi in reduxjs toolkit ?
+what is fetchBaseQuery in reduxjs toolkit ?
+import { configureStore } from "@reduxjs/toolkit";
+what is configureStore in reduxjs toolkit ?
+import { Provider } from "react-redux";
+what is react-redux ?
+what is Provider in reduxjs react-redux ?
+import React from "react";
+import ReactDOM from "react-dom/client";
+what is react dom  in react-dom client  ?
+
+
+what is createApi in reduxjs toolkit ?
+
+what id rtk tooljit in redux toolkit ?
+
+It includes the configuration of how to fetch and transform that data1.
+ -explain this line
+
+It generates an “API slice” structure that contains Redux logic (and optionally React hooks) that encapsulate the data fetching and caching process for you1.
+ -explain this
+
+tell me the state management features of  redux as its called state manage ment library for redux
+
+do rtk query is an alternative of fetch ?
+
+It is designed to simplify common cases for loading data in a web application, eliminating the need to hand-write data fetching & caching logic yourself2 - explain how ?
+
+reducerPath: 'pokemonApi',
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://pokeapi.co/api/v2/' }),
+  endpoints: (builder) => ({
+    getPokemonByName: builder.query<Pokemon, string>({
+      query: (name) => `pokemon/${name}`,
+    }), - explain what each line is doing ?
+  })
+
+what are the components of createApi ?
+
+do  http request is an object itself ?
+
+do endpoints describes how to retrieve data ?
+
+what is builder in the contextApi ?
+
+is api slice is a array of object ?
+
+the createApi uses rtk query right ?
+
+fetch is a low-level API for making HTTP requests, RTK Query provides a high-level abstraction over these requests. It automatically handles many aspects of data fetching that you would otherwise have to code manually if you were using fetch directly. This includes caching, deduplication, polling, automatic re-fetching, and more.
+
+
+so data fetching is a word , but itss a total process for which the  fecth only handles litttle aspects but the rtk query handles all of them more securely the the fetchiiing ont fail ?
+
+
+so when we are using createApi redux generates reux actions and reducers  to change the network request states for that endpoint , and state means the current data means what can happen and only three things can happen sucess , fail , start , then it also automatically caches the each reponse for eah request  , but remember for the requested data from the component wntill the data comes the component re-renders and makes the same request agin but  the previous result is still in the cache then   RTK Query will return the cached result instead of making a new network request , so this is what happens in a network reques that is using createApi
+
+
+React Hooks: For each endpoint you define, RTK Query generates a set of React hooks that encapsulate the entire process of triggering a request and reading the request status and data from the Redux store , By handling these aspects of data fetching and caching, RTK Query allows developers to focus on building their UI, without having to worry about the lower-level details of state management. - what do you means by saying  lower-level details of state management?
+
+
+give me more examples of lower-level tasks in state-management .. all of them .. at least 20 /
+
+
+more .. dont repeat the same points
+
+
+so what low level tasks that createApi simpliyfies for use that we would be doing if we were using like fetch , give me in a list and give all of them also add the state management  context to them in every point  of list explanations , ok
+
+
+show me with example code  , how Creating Actions and Reducers would have been done if we were using fetch rather than createApi or redux /redux tookil in react ?
+
+
+show me with example code  , how - Tracking Loading State -  would have been done if we were using fetch rather than createApi or redux /redux tookil in react ? i am asking this bcz i want to know the full knowledge/depth  why this and why not that
+
+
+show me with example code  , how -Caching -  would have been done if we were using fetch rather than createApi or redux /redux tookil in react ? i am asking this bcz i want to know the full knowledge/depth  why this and why not that
+
+
+show me with example code  , how -Caching -  would have been done if we were using fetch rather than createApi or redux /redux tookil in react ? i am asking this bcz i want to know the full knowledge/depth  why this and why not that
+
+
+show me with example code  , how -Automatic Re-fetching -  would have been done if we were using fetch rather than createApi or redux /redux tookil in react ? i am asking this bcz i want to know the full knowledge/depth  why this and why not that
+
+
+show me with example code  , how -Parallel and Dependent Requests -  would have been done if we were using fetch rather than createApi or redux /redux tookil in react ? i am asking this bcz i want to know the full knowledge/depth  why this and why not that
+
+
+show me with example code  , how -React Hooks -  would have been done if we were using fetch rather than createApi or redux /redux tookil in react ? i am asking this bcz i want to know the full knowledge/depth  why this and why not that
+
+
+
+import { configureStore } from "@reduxjs/toolkit";
+
+
+import { configureStore } from "@reduxjs/toolkit";- what is configureStore in reduxjs toolkit ?
+
+
+what is the difference  between reduxjs and redux-toolkit
+
+
+example code of how to use cnfigureStore ?
+
+
+what i combinereducers , root reducers and slice reducers ?
+
+
+what is the  State type in redux/redux toolkit ?
+
+so createstore is made up of combineredusers + applymiddleware ?
+
+
+so there are three things in redux reducer , store , and whatis the anothre one ?
+
+Sure, let me break it down for you:
+
+1. **State**: This is like a snapshot of your application at a particular point in time. In the example, the state of a todo app is represented as an object with two properties: `todos` (an array of todo items) and `visibilityFilter` (a string indicating which todos are currently visible).
+
+2. **Actions**: Actions are like events that describe something that happened in the application. They are plain JavaScript objects that must have a `type` property. They can also have other properties like `text`, `index`, or `filter` that provide additional information about what happened.
+
+3. **Reducers**: Reducers are functions that take the current state and an action, and return a new state. They describe how the state should change in response to an action. In the example, there are two reducers: `visibilityFilter` and `todos`. Each reducer manages its own part of the state.
+
+4. **Root Reducer**: This is a special reducer that combines all the other reducers into one. This allows us to split the logic for managing the state into smaller, more manageable parts, each with its own reducer.
+
+So, in simple terms, the state is like a model of your application, actions are events that describe what happened, and reducers are functions that describe how the state changes in response to those actions. All of this is just plain JavaScript, with no magic or special Redux APIs involved.
+
+
+
+This text is describing the ecosystem of tools, libraries, and extensions that have been built around Redux. Redux itself is a small library, but it has a set of core principles and APIs that have inspired a large number of additional packages to help solve different problems or provide more developer-friendly APIs.
+
+The text mentions several categories of these libraries:
+
+- **Library Integration and Bindings**: Libraries that help Redux work with other libraries or frameworks, like React.
+- **Reducers**: Libraries that help with creating reducer functions, which are used to update the state in Redux.
+- **Actions**: Libraries that help with creating actions, which represent what happened in the app.
+- **Utilities**: General utilities that can be used in a Redux app.
+- **Store**: Libraries that help with creating and working with the Redux store.
+- **Change Subscriptions**: Libraries that help with subscribing to changes in the Redux store.
+- **Batching**: Libraries that help with batching multiple updates into a single update.
+- **Persistence**: Libraries that help with saving and loading Redux state.
+- **Immutable Data**: Libraries that help with using immutable data in Redux.
+- **Side Effects**: Libraries that help with managing side effects in Redux.
+- **Middleware**: Libraries that provide middleware, which is a type of plugin used to handle asynchronous actions or other side effects.
+- **Dev Tools**: Tools that help with developing and debugging Redux apps.
+- **Testing**: Libraries that help with testing Redux apps.
+- **Routing**: Libraries that help with routing in Redux apps.
+- **Forms**: Libraries that help with form handling in Redux apps.
+- **Higher-Level Abstractions**: Libraries that provide a higher-level API on top of Redux.
+
+The text also mentions that while there are many libraries available, you don't need to use any of them to use Redux. They are there to help make it easier to implement features and solve problems in your application. The Redux maintainers have vetted some of these libraries personally, and they are listed as "staff picks". However, the ecosystem is growing rapidly, and there are many other great libraries out there to explore. If you've built something wonderful with Redux, they encourage you to submit a PR to share it with the community.
+
+
+Redux is a pattern and library for managing and updating application state, using events called "actions". It serves as a centralized store for state that needs to be used across your entire application, with rules ensuring that the state can only be updated in a predictable fashion.The patterns and tools provided by Redux make it easier to understand when, where, why, and how the state in your application is being updated, and how your application logic will behave when those changes occur. Redux guides you towards writing code that is predictable and testable, which helps give you confidence that your application will work as expected.
+
+
+
+
+Redux helps you deal with shared state management, but like any tool, it has tradeoffs. There are more concepts to learn, and more code to write. It also adds some indirection to your code, and asks you to follow certain restrictions. It's a trade-off between short term and long term productivity.
+
+Redux is more useful when:
+
+You have large amounts of application state that are needed in many places in the app
+The app state is updated frequently over time
+The logic to update that state may be complex
+The app has a medium or large-sized codebase, and might be worked on by many people -
+
+
+
+so i am a beginner in web - developer who s in mern and react , next js and i dont builds big project so should i learn redux later ?
+
+
+
+what is fetchBaseQuery in reduxjs toolkit ?
+
+
+// Set the baseUrl for every endpoint below - does it means  url for endpoints  - explain it ?
+
+so what does a baseUrl reprepresnts ? and does url represents the route of the request  and baseurl for every endpoint means retrive data in such way from this route of this request ?
+
+
+what is builder ?
+
+
+hat is the relation between state and reducers in redux ?
+
+
+endpoints: (builder) => ({
+    getPokemonByName: builder.query({
+      // Will make a request like 'https://pokeapi.co/api/v2/pokemon/bulbasaur'
+      query: (name: string) => `pokemon/${name}`,
+    }), - so builder is an object here and we are using .query rhich is used to make a request but where is bulbasaur is coming from ?
+
+
+
+
+what is createAction and createReducer in redux toolkit
+
+
+const counterReducer = createReducer(initialState, (builder) => {
+  builder
+    .addCase(increment, (state, action) => {
+      state.value++
+    })
+    .addCase(decrement, (state, action) => {
+      state.value--
+    })
+}) - builder object is used to define two case reducers for the increment and decrement actions-what is this means ?
+
+
+
+
+
+createAction is used to define action creators for incrementing, decrementing, and incrementing by a certain amount2. Then, createReducer is used to define a reducer that handles these actions2. The addCase method on the builder object is used to map an action to a case reducer function2. - give me a context on this like this happened  so this will handle this and this will handle that
+
+
+
+what oes it means when we say creating actions in redux ?
+
+
+In Redux, a reducer is a function that determines how the state should be updated in response to an action. A “case reducer” is a reducer function responsible for handling a specific action type.
+
+
+what does action means in react ?
+
+
+what does action means in redux/redux-toolkit?
+
+
+
+ok what are the reducer and an action cnsists of in redux ?
+
+
+
+What is the difference between an action and a reducer in Redux?
+
+
+
+so what are the core elements/components of  redux like action , reducer etc .. also what do they do ?
+
+
+
+is event/e is a javascript object ?
+
+
+An event can be triggered by user actions like clicking a mouse button or tapping a keyboard, also it can be generated by APIs to represent the progress of an asynchronous task
+
+

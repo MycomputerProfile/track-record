@@ -1,0 +1,202 @@
+next js docs - 
+
+Getting Started
+        Automatic Installation
+        Manual Installation
+        Creating directories
+        The app directory
+        The pages directory (optional)
+        The public folder (optional)
+        Run the Development Server
+        Next Steps
+Project Structure
+        Top-level folders
+        Top-level files
+        app Routing Conventions
+        Routing Files
+        Nested Routes
+        Dynamic Routes
+        Route Groups and Private Folders
+        Parallel and Intercepted Routes
+        Metadata File Conventions
+        App Icons
+        Open Graph and Twitter Images
+        SEO
+        pages Routing Conventions
+        Special Files
+        Routes
+        Dynamic Routes
+
+
+
+Routing
+        Defining Routes
+        Pages and Layouts
+        Linking and Navigating
+        Route Groups
+        Dynamic Routes
+        Loading UI and Streaming
+        Error Handling
+        Parallel Routes
+        Intercepting Routes
+        Route Handlers
+        Middleware
+        Project Organization
+
+Data Fetching
+        Fetching, Caching, and Revalidating
+        Data Fetching Patterns
+        Forms and Mutations
+
+Rendering
+        Server Components
+        Client Components
+        Composition Patterns
+        Edge and Node.js Runtimes
+
+Caching
+
+
+Styling
+        CSS Modules
+        Tailwind CSS
+        CSS-in-JS
+        Sass
+
+Optimizing
+        Images
+        Fonts
+        Scripts
+        Metadata
+        Static Assets
+        Lazy Loading
+        Analytics
+        OpenTelemetry
+        Instrumentation
+        Third Party Libraries
+
+
+Configuring
+        TypeScript
+        ESLint
+        Environment Variables
+        Absolute Imports and Module Path Aliases
+        MDX
+        src Directory
+        Draft Mode
+        Content Security Policy
+
+
+Deploying
+        Static Exports
+
+Upgrading
+        Codemods
+        App Router Migration
+        Migrating from Vite
+
+API Reference
+
+
+Components
+        Font
+        <Image>
+        <Link>
+        <Script>
+
+File Conventions
+        default.js
+        error.js
+        layout.js
+        loading.js
+        not-found.js
+        page.js
+        route.js
+        Route Segment Config
+        template.js
+        Metadata Files
+                favicon, icon, and apple-icon
+                manifest.json
+                opengraph-image and twitter-image
+                robots.txt
+                sitemap.xml
+
+Functions
+            cookies
+            draftMode
+            fetch
+            generateImageMetadata
+            generateMetadata
+            generateStaticParams
+            generateViewport
+            headers
+            ImageResponse
+            NextRequest
+            NextResponse
+            notFound
+            permanentRedirect
+            redirect
+            revalidatePath
+            revalidateTag
+            Server Actions
+            unstable_cache
+            unstable_noStore
+            useParams
+            usePathname
+            useReportWebVitals
+            useRouter
+            useSearchParams
+            useSelectedLayoutSegment
+            useSelectedLayoutSegments
+
+
+next.config.js Options
+            appDir
+            assetPrefix
+            basePath
+            compress
+            devIndicators
+            distDir
+            env
+            eslint
+            exportPathMap
+            generateBuildId
+            generateEtags
+            headers
+            httpAgentOptions
+            images
+            incrementalCacheHandlerPath
+            logging
+            mdxRs
+            onDemandEntries
+            optimizePackageImports
+            output
+            pageExtensions
+            Partial Prerendering (experimental)
+            poweredByHeader
+            productionBrowserSourceMaps
+            reactStrictMode
+            redirects
+            rewrites
+            serverComponentsExternalPackages
+            trailingSlash
+            transpilePackages
+            turbo
+            typedRoutes
+            typescript
+            urlImports
+            webpack
+            webVitalsAttribution
+
+
+create-next-app
+Edge Runtime
+Next.js CLI
+
+
+Architecture
+Accessibility
+Fast Refresh
+Next.js Compiler
+Supported Browsers
+Turbopack

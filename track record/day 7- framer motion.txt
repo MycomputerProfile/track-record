@@ -1,0 +1,60 @@
+
+Components
+        motion
+        AnimatePresence
+        LayoutGroup
+        LazyMotion
+        MotionConfig
+        Reorder
+Motion values
+        Overview
+        useMotionValueEvent
+        useMotionTemplate
+        useScroll
+        useSpring
+        useTime
+        useTransform
+        useVelocity
+        useWillChange
+Hooks
+        useAnimate
+        useAnimationFrame
+        useDragControls
+        useInView
+        useReducedMotion
+Universal
+        animate
+        scroll
+        inView
+        transform
+        stagger
+        frame
+        Easing functions
+3D
+        Introduction
+        LayoutCamera
+        LayoutOrthographicCamera
+        MotionCanvas
+Guides
+        Accessibility
+        Reduce bundle size
+        Upgrade guides
+
+//////////////////////////////////////////////
+
+
+Sure, here are some beginner to intermediate topics in Framer Motion that you can start with:
+
+1. **Components**: Start with understanding the basic components like `motion`, `AnimatePresence`, and `LayoutGroup`. These components are used to create animations in your React application.
+
+2. **Motion values**: Motion values are used to control the state of your animations. Start with `useMotionValueEvent`, `useMotionTemplate`, `useScroll`, `useSpring`, `useTime`, `useTransform`, `useVelocity`, and `useWillChange`.
+
+3. **Hooks**: Framer Motion provides several hooks that you can use in your components. Start with `useAnimate`, `useAnimationFrame`, `useDragControls`, `useInView`, and `useReducedMotion`.
+
+4. **Universal animations**: Learn about the universal animation functions provided by Framer Motion, like `animate`, `scroll`, `inView`, `transform`, `stagger`, and `frame`.
+
+5. **Easing functions**: Easing functions control the rate of change of an animation. Understanding these will help you create more natural and pleasing animations.
+
+6. **3D animations**: Once you're comfortable with 2D animations, you can start exploring 3D animations with `LayoutCamera`, `LayoutOrthographicCamera`, and `MotionCanvas`.
+
+Remember, the best way to learn is by doing. Try to create simple projects as you learn these topics. This will give you a better understanding of how different parts of Framer Motion work together. Good luck with your learning journey!

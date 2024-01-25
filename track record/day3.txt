@@ -1,0 +1,239 @@
+react-vite-ts_todoList_live-main
+
+app.css ->
+
+1.what does #root is used for ? 
+2. what is - will-change:filter is used for ? 
+3. explain - transition : filter  300ms
+4. expalin - filter : drop-shadow (0 0 2em #kdshjg)
+5. @keyframes animation-name {
+    from{
+
+    }
+    to{
+        
+    }
+}
+
+6.@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+first - @media (prefers-reduced-motion: no-preference)  what is this saying ?
+second -what is :nth-of-type(2) ? i heard about nth-child .
+
+7.  color-scheme: light dark ; 
+what is this saying?
+
+8.  font-synthesis: none;
+what is this mens ? 
+
+9.   text-rendering: optimizeLegibility;
+what is this means ? 
+
+10.   -webkit-font-smoothing : antialiased ;
+what is this means ?
+
+11.   -webkit-text-size-adjust: 100%;
+what is this means ? 
+
+12.if  the app.tsx is serving as the main page then what does this 
+main.tsx  and todos.tsx in the store is doing ? 
+
+app.tsx -> 
+const App = () => {
+  return (
+    <main>
+      <h1>My(Aloke Pramanik) first </h1>
+      <h1>TODO REACT+TYPESCRIPT </h1>
+      <Navbar></Navbar>
+      <AddToDo/>
+      <Todos />
+    </main>
+  )
+}
+main.tsx -> 
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <BrowserRouter>
+    <TodosProvider>
+      <App />
+    </TodosProvider>
+    </BrowserRouter>
+  </React.StrictMode>,
+)
+
+todos.tsx -> 
+// consumer 
+export const useTodos = () => {
+    const todosConsumer = useContext(todosContext);
+    if(!todosConsumer){
+        throw new Error('useTools use outside of provider')
+    }return todosConsumer;
+} 
+
+
+13. ReactDOM.createRoot(document.getElementById('root')!).render(
+) - what does this ! means in this line ?
+
+14. what does linting mean in tsconfig.json ?
+15. what does tsconfig.node.json defines , i means what is the essence of this file ?
+16.      <Link to='/?todos=completed' className={todosData==='completed' ? "active" : ''}>Completed</Link>
+what does to='/?todos=completed' and className={todosData==='completed' ? "active" : '' }  means/saying ? 
+
+17. what is linting in css
+18.so linting means analyzing the source code to identify errors , warnings , bugs , deprecation  etc.  linting tools  contains numerous rules to write perfect modern css with features and consistent code styling , right ?
+19.ok so name someof the most popular and commnly used css linting tools ?
+20.ok so name someof the most popular and commnly used js linting tools ?
+21.what is three js
+22. what is framer motion
+23.difference between three js and framer motion list it out
+244. so can i say three js is a js library which we use to create photorealistic 3d graphics , primarily used for creste 3d graphics and framer motions which is also a js library which is used to create beutiful, smooth transition and 2d animation gor user interactions  right /
+25.three js js is used to mnipulate 3d graphics which uses webgl,css3d and the framrer motion uses for interactve 2d animations and transitions which uses an api right ?
+26.does a library packes severel functionalities for a certain language in modules ?
+27.What are some popular libraries for JavaScript?
+28.difference between library and package ? list them out
+29.library is a collection of packages ans packages are collection of modules and is that it ? is not there more differences?
+30. does cross browser js library means the libray which code is valid / works with multiple browsers and does updaates as browsers updates
+31.in sort , A cross-browser JavaScript library is designed to work across multiple web browsers. This means that the code within the library has been written and tested to ensure it operates correctly on different browsers like Google Chrome, Firefox, Safari, Microsoft Edge, etc.
+
+These libraries abstract away many of the complexities and inconsistencies between different browser’s JavaScript implementations, providing a consistent API that developers can rely on across different browsers.
+
+32. this is the uderlying issue that cross-browser js libraries solves ?
+33.yes , elimiinates browser inconsistencies and provides a stable and cosistent api for developer to use , right?
+34. in react app how to make api reqquests within your application in a structured and scalable way ?
+?
+35. but what is the difference between axios and fetch api ?
+36.i mean which one is most preferred over another and why ? and which one is used nowadays ?
+37.i want to know in which exact situations/needs i shuld prefer axios and in which needs  we should prefer fetch api?
+38.list them out
+39.additional features provided by Axios are not required. - explain point by point what additional features are yu talking about ?
+40.does next automatically handles the cors issue of the brrowser content policy in webdeveloment ?
+41.how does setting headers in handler prevents the cors issue ?
+42.does header defines all the api routes for which the browser cors let the request pass ?
+43.The Access-Control-Allow-Origin header in particular is used to specify which origins are allowed to access the resources on your server. ok but  these headers need to be set for each API route that you want to be accessible cross-origin. If you have multiple routes, you’ll need to ensure that the appropriate CORS headers are set for each one. - what is each API route  ?
+44., an API (Application Programming Interface) route is a path that a client application uses to communicate with the server. Each route corresponds to a specific URL pattern and HTTP method (like GET, POST, PUT, DELETE, etc.). - do route means the spacial url link which containes my special access key to make requests from that api /
+45., an API (Application Programming Interface) route is a path that a client application uses to communicate with the server. Each route corresponds to a specific URL pattern and HTTP method (like GET, POST, PUT, DELETE, etc.). - do route means the spacial url link which containes my special access key to make requests from that api /
+46.explain me more about  HTTP headers  .. what exactly is it ?
+47.do protocol and cors interealted ? if yes the how do they ?
+48. the protocol (HTTP or HTTPS) is part of the definition of “origin”, and CORS is a protocol implemented over HTTP/HTTPS that uses HTTP headers to instruct the browser about controlled access to resources located outside of a given domain1. - so if i mange haeders for the routes  then i will be able to make severel api requests bypassing cors ?
+49.managing headers is a part of handling CORS, but it’s not the only part. CORS is a security feature implemented in web browsers to prevent unauthorized access to resources on different origins. It’s not something that can be bypassed simply by managing headers on the client side.- ok
+50. If you’re having issues with CORS, it’s usually because the server isn’t set up to respond with the correct Access-Control-Allow-* headers. You’ll need to configure the server to respond with the appropriate headers to allow your client-side application to make requests to it. - elaborate
+51. provider and consumer in api calls in vite project ?
+62. : This is the server or service that exposes the API for use. In a Vite project, you can create server-side routes to serve as your API1 - explain these two lines with practical example
+63. firstly the cosumer is the client part and provider is the the server part
+64.and browser and browser security is the middleware here ?
+The browser plays a crucial role in enforcing security policies like the Same-Origin Policy (SOP) and Cross-Origin Resource Sharing (CORS), which control how and when a client-side application can access resources on a different origin
+65.so in the header of the provuder we sets the header right ?
+66.how many methods are there in the server side
+67.Apart from the header, what are the other parts of the HTTP request?
+68.Give an example of an HTTP request from the client side.
+69.
+read carefully , its worthit .
+Yes, you've got it right! 
+
+When a client (like a web browser) makes a cross-origin HTTP request, it first sends a preflight request using the OPTIONS method. This preflight request includes `Access-Control-Request-*` headers to inform the server about the actual request that will follow.
+
+The server then responds to the preflight request with `Access-Control-Allow-*` headers. These headers indicate whether the actual request is allowed:
+
+- `Access-Control-Allow-Origin` specifies which origins are allowed to access the resource.
+- `Access-Control-Allow-Methods` specifies which HTTP methods are allowed for the actual request.
+- `Access-Control-Allow-Headers` specifies which HTTP headers can be used in the actual request.
+
+If the server's response to the preflight request includes the appropriate `Access-Control-Allow-*` headers, and if the values of these headers match the actual request, then the browser sends the actual request to the API endpoint. The API follows the route and returns the appropriate response.
+
+So, in summary, the process involves the client sending a request, the server checking the request against its CORS policy, and if everything checks out, the server processes the request and sends back a response.
+
+Remember, this process is a part of the browser's security measures to prevent unauthorized access to resources on different origins. It's an essential aspect of web security. If you have any more questions or need further clarification, feel free to ask! 😊
+
+Yes, that's correct! The server (API provider) sets the `Access-Control-Allow-*` headers in its responses. These headers are used to specify which origins, methods, and headers are allowed for the client's (API consumer's) requests.
+
+For example, if a server wants to allow a client from `http://example.com` to make `GET` and `POST` requests, it would include these headers in its response:
+
+```
+Access-Control-Allow-Origin: http://example.com
+Access-Control-Allow-Methods: GET, POST
+```
+
+This tells the browser that it's okay to allow the web page at `http://example.com` to make `GET` and `POST` requests to the server.
+
+Remember, these headers are set on the server-side and are included in the server's responses to the client's HTTP requests. The exact way to set these headers depends on your server's software and configuration. If you're unsure, consider consulting with a web development expert or a trusted mentor. 😊
+
+In the context of HTTP, which is the protocol used for communication in web services, there are several methods that can be used on the server-side to handle requests. These methods correspond to different types of actions that can be performed on a resource:
+
+1. **GET**: Retrieves a representation of a resource.
+2. **POST**: Submits data to be processed by the resource.
+3. **PUT**: Updates an existing resource or creates it if it doesn't exist.
+4. **DELETE**: Deletes a resource.
+5. **HEAD**: Similar to GET, but only retrieves the headers (not the body of the resource).
+6. **OPTIONS**: Returns the HTTP methods that the server supports for the specified URL.
+7. **PATCH**: Applies partial modifications to a resource.
+8. **CONNECT**: Used to establish a network connection for use with a proxy.
+9. **TRACE**: Performs a message loop-back test along the path to the target resource.
+
+These methods are defined in the HTTP/1.1 specification. However, not all servers or APIs will support all methods. The allowed methods for a particular resource depend on the server's implementation. 
+
+Remember, each of these methods can have different implications for the security and performance of your application, so it's important to choose the right method for each operation. If you're unsure, consider consulting with a web development expert or a trusted mentor. 😊
+
+Sure, here's an example of an HTTP GET request made from the client-side using JavaScript's Fetch API:
+
+```javascript
+fetch('https://api.example.com/data',{
+  method: 'GET', // or 'POST'
+  headers: {
+    'Content-Type': 'application/json',
+    // 'Authorization': 'Bearer your-token (if needed)',
+  }
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch((error) => {
+  console.error('Error:', error);
+});
+```
+
+In this example, `fetch` is used to make an HTTP request to the URL `https://api.example.com/data`. The `method: 'GET'` option means that this is a GET request. The `headers` option is used to set the Content-Type header to `application/json`, indicating that the request body format is JSON.
+
+The `then` method is used to specify what should happen when the Promise returned by `fetch` is fulfilled. In this case, it converts the response to JSON with `response.json()`, and then logs the data to the console with `console.log(data)`.
+
+The `catch` method is used to handle any errors that may occur during the fetch operation. If an error occurs, it logs the error message to the console with `console.error('Error:', error)`.
+
+Remember, this is just a basic example. Real-world applications may need to handle more complex situations, like authentication, error handling, and more. If you have any more questions or need further clarification, feel free to ask! 😊
+
+
+68. how can i set headers for the server side to tell that allow this origin to make api request using provider ?
+69.Sure, you can set headers on the server-side to specify which origins are allowed to make API requests. This involves including the `Access-Control-Allow-Origin` header in the server's responses. Here's an example of how you might do this using Express.js, a popular Node.js web application framework:
+
+```javascript
+const express = require('express');
+const app = express();
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://example.com'); // replace this with your origin
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
+
+app.get('/api/data', (req, res) => {
+  res.json({ message: 'Hello, world!' });
+});
+
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
+```
+
+In this example, `app.use()` is used to add middleware that sets the `Access-Control-Allow-Origin` and `Access-Control-Allow-Headers` headers on every response. Replace `'http://example.com'` with the origin you want to allow.
+
+Please note that allowing all origins (`*`) can be a security risk, so it's generally best to specify the exact origins that should be allowed.
+
+Remember, this is just a basic example. Depending on your server setup and requirements, you might need to set additional CORS headers or handle preflight `OPTIONS` requests. If you're unsure, consider consulting with a web development expert or a trusted mentor. 😊
+
+68. it the vite does not include the fully  functional server side like node js or next js  its only a frontend build tool for the 
+freont end , so if we need complex api interactions we  need to setup the server diff .
+
+69. and remember when ever we make an api call from the server site we needto set up or configure the server 
+to handle the cors issue . 
+

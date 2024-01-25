@@ -1,0 +1,26 @@
+wirefreames 
+layespanel 
+pages 
+pan 
+zoom 
+components 
+layer 
+library - to speed up the process 
+shapes 
+
+libraries aare the buillding blocks of our ddesign they can be basic ui  elements like buttons or icons or more elaborate compositions like toolbars and menus , libraries are the collection of components and styles we can use libraties in figma to create share and use components across your files . 
+
+
+design system 
+you might have heard of a design sysem , design sysem  combines component libraries with standards and guidelines for implementing them in code ,
+they are single source of truth for designers and developers that help to create consistency at scale , 
+libraries available in figma community  - figma community - https://www.figma.com/community
+we are going to use a wireeframe ui kit  
+
+we could copy the components from this file and paste them into our wireframes , we are going to publish these components to a library instead to make them  availble to our team . 
+
+
+all pages used 
+get unlimited pages and more 
+
+then after you move to project the wireframe then look on the layes panel then go to assets then toggle that imported wireframe / library  in your rpoject page - project name / project page 
